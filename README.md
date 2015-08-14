@@ -34,7 +34,20 @@ docker-compose up
 ```
 
 ### Run as a service
+If you wish to background the service : 
 
+(After build)
+```
+docker-compose start
+docker-compose start
+```
+
+### Mount Local Storage
+If you wish to mount/persist local storage for ease of development, add the following to the 'drupal' definition of docker-compose.yml.
+```
+  volumes:
+    - /your/local/path:/usr/share/nginx/html
+```
 
 A convenience bin `refresh.sh` is included to leverage the delete/build/up cycle during development.
 
