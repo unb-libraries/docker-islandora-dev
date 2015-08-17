@@ -20,4 +20,5 @@ drush vset islandora_solr_url http://${FEDORA_IP}:8080/solr/collection1
 
 # Enable modules
 drush --yes -u 1 en ${ISLANDORA_MODULES}
+drush core-cron
 drush cc all
