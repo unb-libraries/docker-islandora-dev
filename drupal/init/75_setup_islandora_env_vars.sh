@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 FEDORA_IP=`dig +short fedora.docker`
 
-cd /usr/share/nginx/html
+cd ${DRUPAL_ROOT}
 
 # Set Drupal environment variables required by Islandora modules
 drush vset islandora_base_url http://${FEDORA_IP}:8080/fedora

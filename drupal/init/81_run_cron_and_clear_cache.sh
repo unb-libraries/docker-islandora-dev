@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd /usr/share/nginx/html
+cd ${DRUPAL_ROOT}
 
 drush core-cron
 drush cc all
