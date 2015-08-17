@@ -17,8 +17,8 @@ mysql:
     - DNSDOCK_IMAGE=mysql
   expose:
    - "3306"
-fedoracommons:
-  build: fedora-commons
+fedorasolrgsearch:
+  build: fedora-solr-gsearch
   dns: 172.17.42.1
   links:
     - mysql:mysql
