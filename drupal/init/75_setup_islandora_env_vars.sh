@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+FEDORA_IP=`dig +short fedora.docker`
 
 cd /usr/share/nginx/html
 
