@@ -33,7 +33,6 @@ ENV SOLR_DGI_SCHEMA_DL_URI=https://raw.githubusercontent.com/discoverygarden/bas
 # Other
 ENV JAVA_OPTS="-Xms1024m -Xmx1024m -XX:MaxPermSize=128m -Djavax.net.ssl.trustStore=${FEDORA_HOME}/server/truststore -Djavax.net.ssl.trustStorePassword=tomcat"
 
-
 ## Build
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y git ant unzip && \
@@ -79,7 +78,7 @@ RUN sed -i '782i       <str name="fl">*</str>' ${SOLR_DIR}/example/solr/collecti
 RUN sed -i '783i       <str name="q.alt">*:*</str>' ${SOLR_DIR}/example/solr/collection1/conf/solrconfig.xml
 RUN sed -i '784i       <str name="qf">dc.title^5 dc.subject^3 dc.description^3 dc.creator^3 dc.contributor^3 dc.type^1 dc.relation^1 dc.publisher^1 mods_identifier_local_ms^3 ds.WARC_FILTER^1 text_nodes_HOCR_hlt^1 mods_subject_hierarchicalGeographic_region_ms^3 mods_identifier_hdl_mt^3 dc.identifier^3 PID^0.5 catch_all_fields_mt^0.1</str>' ${SOLR_DIR}/example/solr/collection1/conf/solrconfig.xml
 
-
+# Phusion/baseimage inits.
 ADD init/ /etc/my_init.d/
 ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run
