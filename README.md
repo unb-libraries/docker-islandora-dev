@@ -1,7 +1,7 @@
-# Islandora docker stack
+# Islandora docker dev stack
 A simple, extensible Islandora docker stack. Leverages the [phusion/baseimage](https://registry.hub.docker.com/u/phusion/baseimage/) my_init system. *This is not a production-ready stack*.
 
-Thestack is pseudo-monolithic, with fedora/solr/gsearch located on the same instance. This stack will conflict with any machines that have already deployed `tonistiigi/dnsdock`.
+The stack is pseudo-monolithic, is based on docker-compose with fedora/solr/gsearch located on the same instance. This stack will conflict with any machines that have already deployed `tonistiigi/dnsdock`.
 
 ## Requirements
 
@@ -52,7 +52,7 @@ If you wish to mount/persist local storage for ease of development, add the foll
 A convenience bin `refresh.sh` is included to leverage the delete/build/up cycle during development.
 
 ## License
-- Islandora docker stack is licensed under the MIT License:
+- Islandora docker dev stack is licensed under the MIT License:
   - [http://opensource.org/licenses/mit-license.html](http://opensource.org/licenses/mit-license.html)
 - Attribution is not required, but much appreciated:
-  - `Islandora docker stack by UNB Libraries`
+  - `Islandora docker dev stack by UNB Libraries`
