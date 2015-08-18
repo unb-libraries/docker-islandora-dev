@@ -5,7 +5,7 @@ MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 ENV DRUPAL_SITE_ID=islandorap
 
 # Islandora modules to enable on build.
-ENV ISLANDORA_MODULES="islandora islandora_basic_collection islandora_basic_image islandora_pdf islandora_solr"
+ENV ISLANDORA_MODULES="islandora islandora_basic_collection islandora_basic_image islandora_pdf islandora_solr islandora_pdfjs xml_forms"
 
 CMD ["/sbin/my_init"]
 
