@@ -9,12 +9,12 @@ mysql:
   command: mysqld --skip-name-resolve
   dns: 172.17.42.1
   environment:
-    - MYSQL_ROOT_PASSWORD=fedora
-    - MYSQL_USER=fedora
-    - MYSQL_PASSWORD=fedora
-    - MYSQL_DATABASE=fedora3
-    - DNSDOCK_NAME=mysql
-    - DNSDOCK_IMAGE=mysql
+    MYSQL_ROOT_PASSWORD: fedora
+    MYSQL_USER: fedora
+    MYSQL_PASSWORD: fedora
+    MYSQL_DATABASE: fedora3
+    DNSDOCK_NAME: mysql
+    DNSDOCK_IMAGE: mysql
   expose:
    - "3306"
 fedorasolrgsearch:
@@ -28,11 +28,11 @@ fedorasolrgsearch:
   ports:
     - "8080:8080"
   environment:
-    - DRUPAL_DB_NAME=islandorap_db
-    - DRUPAL_DB_USER=islandorap_user
-    - DRUPAL_DB_PASSWORD=fedora
-    - DNSDOCK_NAME=fedora
-    - DNSDOCK_IMAGE=fedora
+    DRUPAL_DB_NAME: islandorap_db
+    DRUPAL_DB_USER: islandorap_user
+    DRUPAL_DB_PASSWORD: fedora
+    DNSDOCK_NAME: fedora
+    DNSDOCK_IMAGE: fedora
 drupal:
   build: drupal
   dns: 172.17.42.1
@@ -43,7 +43,7 @@ drupal:
   ports:
     - "80:80"
   environment:
-    - MYSQL_ROOT_PASSWORD=fedora
-    - DRUPAL_DB_PASSWORD=fedora
-    - DNSDOCK_NAME=drupal
-    - DNSDOCK_IMAGE=drupal
+    MYSQL_ROOT_PASSWORD: fedora
+    DRUPAL_DB_PASSWORD: fedora
+    DNSDOCK_NAME: drupal
+    DNSDOCK_IMAGE: drupal
