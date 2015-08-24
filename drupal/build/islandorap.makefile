@@ -1,10 +1,10 @@
 core = 7.x
 api = 2
-projects[drupal][version] = "7.38"
+projects[drupal][version] = "7.39"
 
 ; Contrib
 projects[views][version] = "3.11"
-projects[ctools][version] = "1.7"
+projects[ctools][version] = "1.9"
 projects[imagemagick][version] = "1.0"
 
 ; Islandora
