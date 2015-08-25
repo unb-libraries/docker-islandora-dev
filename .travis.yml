@@ -13,7 +13,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - docker pull mysql:latest
+  - docker pull mysql:5.6
   - docker pull unblibraries/fedora-solr-gsearch:${FEDORA_SOLR_GSEARCH_VERSION}
   - docker pull unblibraries/drupal:${DRUPAL_VERSION}
 
