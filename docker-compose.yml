@@ -18,7 +18,7 @@ mysql:
   expose:
    - "3306"
 fedorasolrgsearch:
-  build: fedora-solr-gsearch
+  image: unblibraries/fedora-solr-gsearch:3.8.x
   dns: 172.17.42.1
   links:
     - mysql:mysql
