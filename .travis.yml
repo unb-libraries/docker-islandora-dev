@@ -8,9 +8,11 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+  - docker-compose build
 
 script:
-  - docker-compose build
   - docker-compose up -d
-  - sleep 120
-  - curl --retry 3 --retry-delay 5 -v http://localhost/islandora/object/islandora:sp_basic_image_collection
+  - sleep 240
+  - docker-compose ps
+  - docker ps
+  - curl --retry 3 --retry-delay 5 -v http://127.0.0.1/islandora/object/islandora:root
