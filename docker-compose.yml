@@ -1,28 +1,17 @@
-dnsdock:
- image: tonistiigi/dnsdock:latest
- volumes:
- - /var/run/docker.sock:/run/docker.sock
- ports:
- - 172.17.42.1:53:53/udp
 mysql:
   image: mysql:latest
   command: mysqld --skip-name-resolve
-  dns: 172.17.42.1
   environment:
     MYSQL_ROOT_PASSWORD: fedora
     MYSQL_USER: fedora
     MYSQL_PASSWORD: fedora
     MYSQL_DATABASE: fedora3
-    DNSDOCK_NAME: mysql
-    DNSDOCK_IMAGE: mysql
   expose:
    - "3306"
 fedorasolrgsearch:
   image: unblibraries/fedora-solr-gsearch:3.8.x
-  dns: 172.17.42.1
   links:
     - mysql:mysql
-    - drupal:drupal
   expose:
    - "8080"
   ports:
@@ -31,13 +20,11 @@ fedorasolrgsearch:
     DRUPAL_DB_NAME: islandorap_db
     DRUPAL_DB_USER: islandorap_user
     DRUPAL_DB_PASSWORD: fedora
-    DNSDOCK_NAME: fedora
-    DNSDOCK_IMAGE: fedora
 drupal:
   build: drupal
-  dns: 172.17.42.1
   links:
     - mysql:mysql
+    - fedorasolrgsearch:fedorasolrgsearch
   expose:
    - "80"
   ports:
@@ -45,6 +32,4 @@ drupal:
   environment:
     MYSQL_ROOT_PASSWORD: fedora
     DRUPAL_DB_PASSWORD: fedora
-    DNSDOCK_NAME: drupal
-    DNSDOCK_IMAGE: drupal
     ISLANDORA_VERSION: 7.x-1.5

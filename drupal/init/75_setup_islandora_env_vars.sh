@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-FEDORA_IP=`dig +short fedora.docker`
+
+FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR="${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR:-$(echo $FEDORA_SERVER_IP)}"
+FEDORASOLRGSEARCH_PORT_8080_TCP_PORT="${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT:-$(echo $FEDORA_SERVER_PORT)}"
 
 cd ${DRUPAL_ROOT}
 
 # Set Drupal environment variables required by Islandora modules
-drush vset islandora_base_url http://${FEDORA_IP}:8080/fedora
-drush vset islandora_solr_url http://${FEDORA_IP}:8080/solr/collection1
+drush vset islandora_base_url http://${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}/fedora
+drush vset islandora_solr_url http://${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}/solr/collection1
