@@ -1,18 +1,19 @@
-before_install:
-  sudo: required
-
+sudo: required
 services:
   - docker
 
+env:
+  COMPOSE_VERSION: 1.4.0
+
 before_install:
-  - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
+  - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker-compose build
 
 script:
+  - docker-compose build
   - docker-compose up
-  - sleep 240
   - docker-compose ps
   - docker ps
   - curl --retry 3 --retry-delay 5 -v http://127.0.0.1/islandora/object/islandora:root
