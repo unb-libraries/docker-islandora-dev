@@ -1,6 +1,5 @@
 mysql:
   image: mysql:latest
-  command: mysqld --skip-name-resolve
   environment:
     MYSQL_ROOT_PASSWORD: fedora
     MYSQL_USER: fedora
