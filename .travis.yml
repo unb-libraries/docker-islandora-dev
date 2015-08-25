@@ -4,12 +4,18 @@ services:
 
 env:
   COMPOSE_VERSION: 1.4.0
+  FEDORA_SOLR_GSEARCH_VERSION: 3.8.x
+  DRUPAL_VERSION: apache
 
 before_install:
-  - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
   - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+
+before_script:
+  - docker pull mysql:latest
+  - docker pull unblibraries/fedora-solr-gsearch:${FEDORA_SOLR_GSEARCH_VERSION}
+  - docker pull unblibraries/drupal:${DRUPAL_VERSION}
 
 script:
   - docker-compose build
