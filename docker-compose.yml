@@ -1,11 +1,11 @@
 dnsdock:
- image: tonistiigi/dnsdock
+ image: tonistiigi/dnsdock:latest
  volumes:
  - /var/run/docker.sock:/run/docker.sock
  ports:
  - 172.17.42.1:53:53/udp
 mysql:
-  image: mysql
+  image: mysql:latest
   command: mysqld --skip-name-resolve
   dns: 172.17.42.1
   environment:
