@@ -47,4 +47,4 @@ drupal:
     DRUPAL_DB_PASSWORD: fedora
     DNSDOCK_NAME: drupal
     DNSDOCK_IMAGE: drupal
-    ISLANDORA_REFSPEC: HEAD
+    ISLANDORA_VERSION: 7.x-1.5
