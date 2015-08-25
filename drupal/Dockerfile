@@ -1,7 +1,6 @@
 FROM unblibraries/drupal:apache
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
-# This is the slug that is used to build the site from the makefile, etc.
 ENV DRUPAL_SITE_ID=islandorap
 
 # Islandora modules to enable on build.

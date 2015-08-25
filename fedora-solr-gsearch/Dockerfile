@@ -2,7 +2,6 @@ FROM unblibraries/oracle-jdk8
 MAINTAINER Jacob Sanford <jsanford_at_unb.ca>
 
 ## Environment Variables
-
 # Versions
 ENV JAVA_MAJOR_VERSION=8
 ENV FEDORA_VERSION=3.8.1
@@ -33,7 +32,8 @@ ENV SOLR_DGI_SCHEMA_DL_URI=https://raw.githubusercontent.com/discoverygarden/bas
 # Other
 ENV JAVA_OPTS="-Xms1024m -Xmx1024m -XX:MaxPermSize=128m -Djavax.net.ssl.trustStore=${FEDORA_HOME}/server/truststore -Djavax.net.ssl.trustStorePassword=tomcat"
 
-## Build
+## Build Image
+# Install packages
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y git ant unzip && \
   apt-get clean
@@ -42,7 +42,7 @@ RUN mkdir -p ${TMP_WORKDIR}
 
 CMD ["/sbin/my_init"]
 
-## Fedora
+# Install and configure Fedora
 RUN wget --directory-prefix=${TMP_WORKDIR}/ ${FEDORA_COMMONS_DL_URI}
 ADD conf/fedora-commons/install.properties ${TMP_WORKDIR}/install.properties
 
@@ -51,14 +51,14 @@ RUN wget --directory-prefix=${TMP_WORKDIR}/ ${FEDORA_DRUPAL_FILTER_XML_DL_URI}
 RUN git clone git://github.com/mjordan/drupal_filter_validator ${TMP_WORKDIR}/drupal_filter_validator
 RUN git clone git://github.com/Islandora/islandora-xacml-policies.git ${TMP_WORKDIR}/islandora-xacml-policies
 
-## GSearch
+# Install and configure GSearch
 RUN wget --directory-prefix=${TMP_WORKDIR}/ ${GSEARCH_DL_URI}
 RUN cd ${TMP_WORKDIR} && unzip fedoragsearch-${GSEARCH_VERSION}.zip
 RUN wget --directory-prefix=${TMP_WORKDIR}/ ${GSEARCH_DGI_EXT_DL_URI}
 RUN git clone git://github.com/discoverygarden/basic-solr-config.git ${TMP_WORKDIR}/basic-solr-config
 ADD conf/gsearch/fgsconfig-basic.properties ${TMP_WORKDIR}/fgsconfig-basic.properties
 
-## Solr
+# Install and configure Solr
 RUN wget --directory-prefix=${TMP_WORKDIR}/ ${SOLR_DL_URI}
 RUN cd ${TMP_WORKDIR}/ && tar xvzpf solr-${SOLR_VERSION}.tgz
 RUN mv ${TMP_WORKDIR}/solr-${SOLR_VERSION} /opt/
@@ -78,7 +78,7 @@ RUN sed -i '782i       <str name="fl">*</str>' ${SOLR_DIR}/example/solr/collecti
 RUN sed -i '783i       <str name="q.alt">*:*</str>' ${SOLR_DIR}/example/solr/collection1/conf/solrconfig.xml
 RUN sed -i '784i       <str name="qf">dc.title^5 dc.subject^3 dc.description^3 dc.creator^3 dc.contributor^3 dc.type^1 dc.relation^1 dc.publisher^1 mods_identifier_local_ms^3 ds.WARC_FILTER^1 text_nodes_HOCR_hlt^1 mods_subject_hierarchicalGeographic_region_ms^3 mods_identifier_hdl_mt^3 dc.identifier^3 PID^0.5 catch_all_fields_mt^0.1</str>' ${SOLR_DIR}/example/solr/collection1/conf/solrconfig.xml
 
-# Phusion/baseimage inits.
+# Copy phusion/baseimage inits.
 ADD init/ /etc/my_init.d/
 ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run
