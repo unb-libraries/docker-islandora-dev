@@ -8,7 +8,9 @@ The stack is pseudo-monolithic, is based on docker-compose with fedora/solr/gsea
 * `docker`
 * `docker-compose`
 
-New to Docker? If you are not on a [Linux based OS](https://docs.docker.com/installation/ubuntulinux/), the fastest way to get up and running with Docker is using [Docker Toolbox](https://www.docker.com/toolbox).
+## Getting Started
+Not sure where to start? New to Docker? Check out the [unblibraries/drupal Wiki](https://github.com/unb-libraries/docker-islandora-dev/wiki) for detailed instructions on deploying a local development instance.
+
 
 ## Usage
 ### Initial Deployment
