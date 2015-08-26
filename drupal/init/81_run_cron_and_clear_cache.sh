@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-cd ${DRUPAL_ROOT}
-
-drush core-cron
-drush cc all
+# Run cron and clear cache.
+drush --root=${DRUPAL_ROOT} --uri=default  core-cron
+drush --root=${DRUPAL_ROOT} --uri=default  cc all

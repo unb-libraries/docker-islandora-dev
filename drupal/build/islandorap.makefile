@@ -2,12 +2,12 @@ core = 7.x
 api = 2
 projects[drupal][version] = "7.39"
 
-; Contrib
+; Contrib Modules
 projects[views][version] = "3.11"
 projects[ctools][version] = "1.9"
 projects[imagemagick][version] = "1.0"
 
-; Islandora
+; Islandora Modules
 projects[islandora][type] = "module"
 projects[islandora][download][type] = "git"
 projects[islandora][download][url] = "git://github.com/Islandora/islandora.git"
