@@ -1,9 +1,9 @@
 <?php
 /**
  * @file
- * Install, update and uninstall functions for the islandoradev profile.
+ * Install, update and uninstall functions for the islanddev profile.
  */
-function islandoradev_install() {
+function islanddev_install() {
   include_once DRUPAL_ROOT . '/profiles/standard/standard.install';
   standard_install();
 }
