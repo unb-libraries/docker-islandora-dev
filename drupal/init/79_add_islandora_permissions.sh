@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ ! -f /tmp/DB_LIVE && ! -f /tmp/FILES_LIVE ]];
+if [[ ! -f /tmp/DRUPAL_DB_LIVE && ! -f /tmp/DRUPAL_FILES_LIVE ]];
 then
 
 cd ${DRUPAL_ROOT}

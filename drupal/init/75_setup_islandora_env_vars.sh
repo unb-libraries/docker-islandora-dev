@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ ! -f /tmp/DB_LIVE && ! -f /tmp/FILES_LIVE ]];
+if [[ ! -f /tmp/DRUPAL_DB_LIVE && ! -f /tmp/DRUPAL_FILES_LIVE ]];
 then
 
 FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR="${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR:-$(echo $FEDORA_SERVER_IP)}"
