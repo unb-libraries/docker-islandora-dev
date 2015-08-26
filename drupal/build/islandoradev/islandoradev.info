@@ -1,5 +1,5 @@
-name = islandorap
-description = Install Profile for Islandora
+name = islandoradev
+description = Install Profile for Islandora Dev
 core = 7.x
 
 # Required By Standard Install
