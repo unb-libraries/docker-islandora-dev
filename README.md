@@ -9,7 +9,7 @@ The stack is pseudo-monolithic, is based on docker-compose with fedora/solr/gsea
 * `docker-compose`
 
 ## Getting Started
-Not sure where to start? New to Docker? Check out the [unblibraries/drupal Wiki](https://github.com/unb-libraries/docker-islandora-dev/wiki) for detailed instructions on deploying a local development instance.
+Not sure where to start? New to Docker? Check out the [unblibraries/docker-islandora-dev Wiki](https://github.com/unb-libraries/docker-islandora-dev/wiki) for detailed instructions on deploying a local development instance.
 
 ## License
 - Islandora docker dev stack is licensed under the MIT License:
