@@ -1,7 +1,7 @@
 # Islandora docker dev stack
 A simple, extensible Islandora docker stack. Leverages the [phusion/baseimage](https://registry.hub.docker.com/u/phusion/baseimage/) my_init system. *This is not a production-ready stack*.
 
-The stack is pseudo-monolithic, is based on docker-compose with fedora/solr/gsearch located on the same instance. This stack will conflict with any machines that have already deployed `tonistiigi/dnsdock`.
+The stack is pseudo-monolithic, is based on docker-compose with fedora/solr/gsearch located on the same instance.
 
 ## Requirements
 
