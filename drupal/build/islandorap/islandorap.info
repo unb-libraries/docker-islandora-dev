@@ -28,6 +28,7 @@ dependencies[] = rdf
 ; Views
 dependencies[] = views
 dependencies[] = views_ui
+dependencies[] = libraries
 
 ; Islandora
 dependencies[] = imagemagick
