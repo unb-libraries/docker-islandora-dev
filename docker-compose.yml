@@ -16,8 +16,8 @@ fedorasolrgsearch:
   ports:
     - "8080:8080"
   environment:
-    DRUPAL_DB_NAME: islandorap_db
-    DRUPAL_DB_USER: islandorap_user
+    DRUPAL_DB_NAME: islanddev_db
+    DRUPAL_DB_USER: islanddev_user
     DRUPAL_DB_PASSWORD: fedora
 drupal:
   build: drupal
