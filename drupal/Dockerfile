@@ -12,11 +12,11 @@ RUN apt-get update && \
   apt-get clean
 
 # Copy the makefile and install profile for building.
-RUN mkdir -p /tmp/drupal_build/islandora
-ADD build/${DRUPAL_SITE_ID}.makefile /tmp/drupal_build/${DRUPAL_SITE_ID}.makefile
-ADD build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.info /tmp/drupal_build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.info
-ADD build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.install /tmp/drupal_build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.install
-ADD build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.profile /tmp/drupal_build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.profile
+RUN mkdir -p ${TMP_DRUPAL_BUILD_DIR}/islandora
+ADD build/${DRUPAL_SITE_ID}.makefile ${TMP_DRUPAL_BUILD_DIR}/${DRUPAL_SITE_ID}.makefile
+ADD build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.info ${TMP_DRUPAL_BUILD_DIR}/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.info
+ADD build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.install ${TMP_DRUPAL_BUILD_DIR}/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.install
+ADD build/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.profile ${TMP_DRUPAL_BUILD_DIR}/${DRUPAL_SITE_ID}/${DRUPAL_SITE_ID}.profile
 
 # Phusion/baseimage inits.
 CMD ["/sbin/my_init"]
