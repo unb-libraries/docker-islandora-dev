@@ -16,6 +16,9 @@ before_script:
   - docker pull mysql:5.6
   - docker pull unblibraries/fedora-solr-gsearch:${FEDORA_SOLR_GSEARCH_VERSION}
   - docker pull unblibraries/drupal:${DRUPAL_VERSION}
+  - sed -i '/image\: mysql/a \ \ privileged: true' docker-compose.yml
+  - sed -i '/image: unblibraries\/fedora-solr-gsearch/a \ \ privileged: true' docker-compose.yml
+  - sed -i '/build: drupal/a \ \ privileged: true' docker-compose.yml
 
 script:
   - docker-compose build
