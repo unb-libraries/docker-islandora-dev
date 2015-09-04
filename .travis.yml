@@ -20,4 +20,5 @@ before_script:
 
 script:
   - docker-compose build
-  - docker-compose up
+  - docker-compose up -d
+  - curl --retry 5 --retry-delay 60 -v http://127.0.0.1/islandora/object/islandora:root
