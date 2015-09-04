@@ -3,9 +3,7 @@ services:
   - docker
 
 env:
-  - COMPOSE_VERSION=1.4.0
-  - FEDORA_SOLR_GSEARCH_VERSION=3.8.x
-  - DRUPAL_VERSION=apache
+  - COMPOSE_VERSION=1.4.0 FEDORA_SOLR_GSEARCH_VERSION=3.8.x DRUPAL_VERSION=apache
 
 before_install:
   - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
