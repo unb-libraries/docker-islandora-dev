@@ -11,7 +11,7 @@ then
   # Crude way to determine if Fedora is ready : test to see if returns data on the /describe page as expected.
   FEDORA_ALIVE_STRING="Repository Information View"
   if ! curl -s "http://${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}/fedora/describe" | grep -q "$FEDORA_ALIVE_STRING"; then
-    while [ "$RETVAL" = "" ];
+    while [ $RETVAL = "" ];
     do
       RETVAL=`curl -s "http://${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}/fedora/describe" | grep -q "$FEDORA_ALIVE_STRING"`
       echo -e "\t Waiting for Fedora server on ${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}..."
