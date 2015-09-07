@@ -5,8 +5,11 @@
 FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR="${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR:-$(echo $FEDORA_SERVER_IP)}"
 FEDORASOLRGSEARCH_PORT_8080_TCP_PORT="${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT:-$(echo $FEDORA_SERVER_PORT)}"
 
-# Set Drupal environment variables required by Islandora modules
+## Set Drupal environment variables required by Islandora modules
+# Core
 drush --root=${DRUPAL_ROOT} --uri=default vset islandora_base_url http://${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}/fedora
+
+# Solr
 drush --root=${DRUPAL_ROOT} --uri=default vset islandora_solr_url http://${FEDORASOLRGSEARCH_PORT_8080_TCP_ADDR}:${FEDORASOLRGSEARCH_PORT_8080_TCP_PORT}/solr/collection1
 
 # Imagemagick
