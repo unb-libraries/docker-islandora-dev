@@ -1,9 +1,9 @@
 core = 7.x
 api = 2
-projects[drupal][version] = "7.39"
+projects[drupal][version] = "7.41"
 
 ; Contrib Modules
-projects[views][version] = "3.11"
+projects[views][version] = "3.13"
 projects[ctools][version] = "1.9"
 projects[imagemagick][version] = "1.0"
 projects[libraries][version] = "2.2"
